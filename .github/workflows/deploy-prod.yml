@@ -27,6 +27,8 @@ jobs:
 
       - uses: UnlyEd/github-action-deploy-on-vercel@latest
 
+        run: vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }}
+
         with:
           command: "vercel ./ --confirm --prod --token ${{ secrets.VERCEL_TOKEN }}"
 
