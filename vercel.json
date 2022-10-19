@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "public": false,
+  "name": "loc-web",
+  "github": {
+    "enabled": false
+  }
+}
