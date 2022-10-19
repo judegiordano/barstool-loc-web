@@ -32,5 +32,3 @@ jobs:
 
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      REDIS_ENDPOINT: ${{ secrets.BACKEND_API }}
-      REDIS_READONLY_TOKEN: ${{ secrets.BACKEND_API }}
