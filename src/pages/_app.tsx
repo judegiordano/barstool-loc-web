@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import type { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
 
 import "@styles/globals.css";
 
@@ -16,7 +17,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<meta name="description" content="Current Approximate Lines of Code In Barstool Sports Github Org" />
 			</Head>
 			<div>
-				<Component {...pageProps} />
+				<ThemeProvider attribute="data-theme" defaultTheme={"dracula"}>
+					<Component {...pageProps} />
+				</ThemeProvider>
 			</div>
 		</>
 	);

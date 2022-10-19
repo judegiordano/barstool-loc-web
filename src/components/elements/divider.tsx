@@ -11,7 +11,6 @@ export const Divider = () => {
 				height={90}
 				alt="barstool"
 				draggable={false}
-				priority
 			/>
 		</div>
 	);

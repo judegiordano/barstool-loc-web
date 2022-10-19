@@ -25,6 +25,15 @@
       ],
       "@components/*": [
         "src/components/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@config": [
+        "src/config.ts"
+      ],
+      "@http/*": [
+        "src/http/*"
       ]
     }
   },
