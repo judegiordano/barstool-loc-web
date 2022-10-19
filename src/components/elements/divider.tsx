@@ -7,7 +7,7 @@ export const Divider = () => {
 			<div className="flex-grow border-t border-gray-400"></div>
 			<span className="flex-shrink mx-4 text-gray-400">
 				<Image
-					src={"/barstool-no-blur.png"}
+					src={"/barstool.svg"}
 					quality={100}
 					width={45}
 					height={45}
