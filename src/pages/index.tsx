@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
+import { Divider } from "@components/elements/divider";
+
 interface HomeProps {
 	count: number
 }
@@ -10,19 +12,10 @@ const formatNumber = (number: number, notation: "standard" | "scientific" | "eng
 	return formatter.format(number);
 };
 
-const Divider = () => {
-	return (
-		<div className="relative flex py-5 items-center, max-w-lg m-auto">
-			<div className="flex-grow border-t border-gray-400"></div>
-			<div className="flex-grow border-t border-gray-400"></div>
-		</div>
-	);
-};
-
 const Home = ({ count }: HomeProps) => {
 	return (
-		<div className="h-screen text-center text-white bg-theme-dark-black">
-			<div className='font-bold text-[125px]'>
+		<div className="h-screen px-5 text-center text-white bg-theme-dark-black">
+			<div className='pt-5 text-6xl font-bold md:text-8xl'>
 				{formatNumber(count, "compact")}
 			</div>
 			<div className='font-thin text-[20px]'>
