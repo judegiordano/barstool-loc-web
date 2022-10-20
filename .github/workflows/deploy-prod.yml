@@ -23,15 +23,15 @@ jobs:
 
       - run: yarn lint
 
-      - uses: UnlyEd/github-action-deploy-on-vercel@latest
-        with:
-          command: |
-            vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }}
-            yarn build
+      - run: yarn install --global vercel@canary
 
-      - uses: UnlyEd/github-action-deploy-on-vercel@latest
-        with:
-          command: "vercel ./ --confirm --prod --token ${{ secrets.VERCEL_TOKEN }}"
+      - run: vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }} \
+
+      - run: yarn build
+
+      - run: vercel ./ --confirm --prod --token ${{ secrets.VERCEL_TOKEN }}
 
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      REDIS_READONLY_TOKEN: ${{ secrets.REDIS_READONLY_TOKEN }}
+      REDIS_ENDPOINT: ${{ secrets.REDIS_ENDPOINT }}

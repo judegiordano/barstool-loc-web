@@ -10,6 +10,7 @@ export const Divider = () => {
 				width={90}
 				height={90}
 				alt="barstool"
+				priority
 				draggable={false}
 			/>
 		</div>
