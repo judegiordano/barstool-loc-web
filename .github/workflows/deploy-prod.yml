@@ -23,7 +23,7 @@ jobs:
 
       - run: yarn lint
 
-      - run: yarn install --global vercel@canary
+      - run: yarn global add vercel@canary
 
       - run: vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }} \
 
