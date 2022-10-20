@@ -11,6 +11,7 @@ export const Divider = () => {
 				height={90}
 				alt="barstool"
 				priority
+				loading="eager"
 				draggable={false}
 			/>
 		</div>
