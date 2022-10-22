@@ -17,15 +17,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: yarn
 
-      - run: yarn install --frozen-lockfile
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 7
 
-      - run: yarn lint
+      - run: pnpm install --frozen-lockfile
 
-      - run: yarn global add vercel@canary
+      - run: pnpm lint
 
-      - run: yarn build
+      - run: npm i -g vercel@canary
+
+      - run: pnpm build
 
       - run: vercel ./ --yes --prod --token ${{ secrets.VERCEL_TOKEN }}
 
