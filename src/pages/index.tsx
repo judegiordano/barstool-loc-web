@@ -32,10 +32,11 @@ const Home = ({ count }: HomeProps) => {
 	);
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 	const { result: count } = await redis.get<{ result: string }>("GET/lines_of_code");
 	return {
-		props: { count }
+		props: { count },
+		revalidate: 3_600 // hour in seconds
 	};
 }
 

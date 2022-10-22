@@ -28,9 +28,17 @@ jobs:
 
       - run: npm i -g vercel@canary
 
-      - run: pnpm build
+      - run: vercel pull --yes
+
+      - run: |
+          VERCEL_TOKEN=${{ secrets.VERCEL_TOKEN }} \
+          REDIS_ENDPOINT=${{ secrets.REDIS_ENDPOINT }} \
+          REDIS_READONLY_TOKEN=${{ secrets.REDIS_READONLY_TOKEN }} \
+          pnpm build \
 
       - run: vercel ./ --yes --prod --token ${{ secrets.VERCEL_TOKEN }}
 
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      REDIS_ENDPOINT: ${{ secrets.REDIS_ENDPOINT }}
+      REDIS_READONLY_TOKEN: ${{ secrets.REDIS_READONLY_TOKEN }}
