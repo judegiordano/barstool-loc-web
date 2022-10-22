@@ -28,7 +28,7 @@ jobs:
 
       - run: npm i -g vercel@canary
 
-      - run: vercel pull --yes
+      - run: vercel pull --yes --token ${{ secrets.VERCEL_TOKEN }}
 
       - run: |
           VERCEL_TOKEN=${{ secrets.VERCEL_TOKEN }} \
