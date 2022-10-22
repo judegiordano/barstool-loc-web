@@ -39,9 +39,11 @@ jobs:
       - run: |
           REDIS_ENDPOINT=${{ secrets.REDIS_ENDPOINT }} \
           REDIS_READONLY_TOKEN=${{ secrets.REDIS_READONLY_TOKEN }} \
-          vercel ./ --prod \
+          vercel ./ \
+          --prod \
           --env REDIS_ENDPOINT=${{ secrets.REDIS_ENDPOINT }} \
           --env REDIS_READONLY_TOKEN=${{ secrets.REDIS_READONLY_TOKEN }} \
+          --prebuilt \
           --token ${{ secrets.VERCEL_TOKEN }} \
 
     env:
