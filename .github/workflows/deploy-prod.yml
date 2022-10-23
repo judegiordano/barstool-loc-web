@@ -34,7 +34,7 @@ jobs:
           --prod \
           --env REDIS_ENDPOINT=${{ secrets.REDIS_ENDPOINT }} \
           --env REDIS_READONLY_TOKEN=${{ secrets.REDIS_READONLY_TOKEN }} \
-          --confirm
+          --yes
 
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
