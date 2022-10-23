@@ -31,6 +31,7 @@ jobs:
       - run: |
           vercel ./ \
           --prod \
+          --confirm
           --env REDIS_ENDPOINT=${{ secrets.REDIS_ENDPOINT }} \
           --env REDIS_READONLY_TOKEN=${{ secrets.REDIS_READONLY_TOKEN }} \
           --token ${{ secrets.VERCEL_TOKEN }} \
