@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@next/eslint-plugin-next': ^12.3.1
+  '@types/luxon': ^3.0.2
   '@types/node': 18.11.1
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
@@ -12,6 +13,7 @@ specifiers:
   eslint: ^8.25.0
   eslint-config-next: ^12.3.1
   eslint-plugin-react: ^7.31.10
+  luxon: ^3.0.4
   next: 12.3.1
   next-themes: ^0.2.1
   postcss: ^8.4.18
@@ -25,6 +27,7 @@ specifiers:
 dependencies:
   autoprefixer: 10.4.12_postcss@8.4.18
   daisyui: 2.33.0_xkowlklhtk6sfvtndbucb3hfiy
+  luxon: 3.0.4
   next: 12.3.1_biqbaboplfbrettd7655fr4n2y
   next-themes: 0.2.1_azq6kxkn3od7qdylwkyksrwopy
   react: 18.2.0
@@ -34,6 +37,7 @@ dependencies:
 
 devDependencies:
   '@next/eslint-plugin-next': 12.3.1
+  '@types/luxon': 3.0.2
   '@types/node': 18.11.1
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
@@ -261,6 +265,10 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+    dev: true
+
+  /@types/luxon/3.0.2:
+    resolution: {integrity: sha512-HM2OVWckUMmXbWYZufmWT2XMURGDZ6XbyNyQ+Lx+gCFGFqbZaIjsz7b+AGeGP/AuVYHBiuGY+wXfweP1RremnA==}
     dev: true
 
   /@types/node/18.11.1:
@@ -1645,6 +1653,11 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+
+  /luxon/3.0.4:
+    resolution: {integrity: sha512-aV48rGUwP/Vydn8HT+5cdr26YYQiUZ42NM6ToMoaGKwYfWbfLeRkEu1wXWMHBZT6+KyLfcbbtVcoQFCbbPjKlw==}
+    engines: {node: '>=12'}
+    dev: false
 
   /merge2/1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
