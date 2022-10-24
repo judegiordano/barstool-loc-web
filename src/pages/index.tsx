@@ -23,14 +23,12 @@ const Home = ({
 }: HomeProps) => {
 	const when = DateTime.fromISO(last_fetched);
 	return (
-		<div className="h-screen px-5 pt-5 text-center">
-			<div className="m-auto text-center shadow-xl max-w-full card w-[700px] hover:cursor-default">
+		<div className="flex-wrap h-screen px-5 pt-5 m-auto text-center">
+			<div className="shadow-xl m-auto max-w-full card w-[600px] hover:cursor-default">
 				<div className="card-body">
-					<div className="stat">
-						<div className="text-6xl font-bold stat-value text-secondary md:text-8xl">{formatNumber(count, "compact")}</div>
-						<div className="stat-desc font-thin text-[19px] pt-3"><span className="font-medium">{formatNumber(count)}</span> lines of code across <span className="font-medium">{repo_count}</span> repositories</div>
-						<div className="stat-desc font-thin text-[15px] pt-3">last updated {when.toRelativeCalendar()} at {when.toLocaleString({ hour: "numeric", minute: "numeric" })}</div>
-					</div>
+					<div className="text-6xl font-bold text-secondary md:text-8xl">{formatNumber(count, "compact")}</div>
+					<div className="opacity-60 font-thin text-[19px] pt-3"><span className="font-medium">{formatNumber(count)}</span> lines of code across <span className="font-medium">{repo_count}</span> repositories</div>
+					<div className="opacity-60 font-thin text-[15px] pt-3">last updated {when.toRelativeCalendar()} at {when.toLocaleString({ hour: "numeric", minute: "numeric" })}</div>
 				</div>
 			</div>
 			<Divider />
