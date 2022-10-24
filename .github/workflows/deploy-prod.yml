@@ -34,6 +34,7 @@ jobs:
           --prod \
           --env REDIS_ENDPOINT=${{ secrets.REDIS_ENDPOINT }} \
           --env REDIS_READONLY_TOKEN=${{ secrets.REDIS_READONLY_TOKEN }} \
+          --env NODE_ENV=production \
           --yes
 
     env:

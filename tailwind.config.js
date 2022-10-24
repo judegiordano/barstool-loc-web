@@ -14,7 +14,8 @@ module.exports = {
 				"theme-yellow": "#FEE75C",
 				"theme-red": "#ef4444",
 				"theme-purple": "#5865F2",
-				"theme-upstash-green": "#00e9a3"
+				"theme-upstash-green": "#00e9a3",
+				"theme-rust-orange": "#ef4a00"
 			},
 		}
 	},

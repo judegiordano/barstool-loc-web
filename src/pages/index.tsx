@@ -1,9 +1,9 @@
 import React from "react";
-import Link from "next/link";
-
-import { Divider } from "@components/elements/divider";
-import { redis } from "@http/redis-agent";
 import { DateTime } from "luxon";
+
+import { redis } from "@http/redis-agent";
+import { Divider } from "@components/elements/Divider";
+import { AppLink } from "@components/elements/AppLink";
 
 interface HomeProps {
 	count: number
@@ -27,13 +27,13 @@ const Home = ({
 			<div className="shadow-xl m-auto max-w-full card w-[600px] hover:cursor-default">
 				<div className="card-body">
 					<div className="text-6xl font-bold text-secondary md:text-8xl">{formatNumber(count, "compact")}</div>
-					<div className="opacity-60 font-thin text-[19px] pt-3"><span className="font-medium">{formatNumber(count)}</span> lines of code across <span className="font-medium">{repo_count}</span> repositories</div>
+					<div className="opacity-60 font-thin text-[20px] pt-3"><span className="font-medium">{formatNumber(count)}</span> lines of code<br />across <span className="font-medium">{repo_count}</span> repositories</div>
 					<div className="opacity-60 font-thin text-[15px] pt-3">last updated {when.toRelativeCalendar()} at {when.toLocaleString({ hour: "numeric", minute: "numeric" })}</div>
 				</div>
 			</div>
 			<Divider />
 			<div className='font-normal text-[15px]'>
-				powered by <Link href="https://upstash.com"><a className='text-theme-upstash-green' target='_blank'>Upstash</a></Link>
+				powered by <AppLink link="https://upstash.com" color="theme-upstash-green" blank>Upstash</AppLink>
 			</div>
 		</div>
 	);
