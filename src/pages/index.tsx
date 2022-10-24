@@ -36,10 +36,16 @@ const Home = ({ count, repo_count }: HomeProps) => {
 };
 
 export async function getServerSideProps() {
-	const { result: count } = await redis.get<{ result: string }>("GET/lines_of_code");
+	const [{
+		result: count
+	}, {
+		result: repo_count
+	}] = await Promise.all([
+		redis.get<{ result: string }>("GET/lines_of_code"),
+		redis.get<{ result: string }>("GET/repo_count")
+	]);
 	return {
-		// TODO upstash repo count
-		props: { count, repo_count: 209 }
+		props: { count, repo_count }
 	};
 }
 
