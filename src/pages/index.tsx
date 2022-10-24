@@ -3,10 +3,12 @@ import Link from "next/link";
 
 import { Divider } from "@components/elements/divider";
 import { redis } from "@http/redis-agent";
+import { DateTime } from "luxon";
 
 interface HomeProps {
 	count: number
 	repo_count: number
+	last_fetched: string
 }
 
 const formatNumber = (number: number, notation: "standard" | "scientific" | "engineering" | "compact" = "standard") => {
@@ -14,16 +16,20 @@ const formatNumber = (number: number, notation: "standard" | "scientific" | "eng
 	return formatter.format(number);
 };
 
-const Home = ({ count, repo_count }: HomeProps) => {
+const Home = ({
+	count,
+	repo_count,
+	last_fetched
+}: HomeProps) => {
+	const when = DateTime.fromISO(last_fetched);
 	return (
 		<div className="h-screen px-5 pt-5 text-center">
-			<div className="m-auto text-center shadow-xl card w-96 hover:cursor-default">
+			<div className="m-auto text-center shadow-xl max-w-full card w-[700px] hover:cursor-default">
 				<div className="card-body">
 					<div className="stat">
 						<div className="text-6xl font-bold stat-value text-secondary md:text-8xl">{formatNumber(count, "compact")}</div>
-						<div className="tooltip tooltip-bottom tooltip-info" data-tip={`from ${repo_count} repositories`}>
-							<div className="stat-desc font-thin text-[20px] pt-3"><span className="font-medium">{formatNumber(count)}</span> lines of code</div>
-						</div>
+						<div className="stat-desc font-thin text-[19px] pt-3"><span className="font-medium">{formatNumber(count)}</span> lines of code across <span className="font-medium">{repo_count}</span> repositories</div>
+						<div className="stat-desc font-thin text-[15px] pt-3">last updated {when.toRelativeCalendar()} at {when.toLocaleString({ hour: "numeric", minute: "numeric" })}</div>
 					</div>
 				</div>
 			</div>
@@ -35,17 +41,26 @@ const Home = ({ count, repo_count }: HomeProps) => {
 	);
 };
 
+type RedisResult = { result: string }
+
 export async function getServerSideProps() {
 	const [{
 		result: count
 	}, {
 		result: repo_count
+	}, {
+		result: last_fetched
 	}] = await Promise.all([
-		redis.get<{ result: string }>("GET/lines_of_code"),
-		redis.get<{ result: string }>("GET/repo_count")
+		redis.get<RedisResult>("GET/lines_of_code"),
+		redis.get<RedisResult>("GET/repo_count"),
+		redis.get<RedisResult>("GET/last_fetched"),
 	]);
 	return {
-		props: { count, repo_count }
+		props: {
+			count: parseInt(count),
+			repo_count: parseFloat(repo_count),
+			last_fetched
+		}
 	};
 }
 
