@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<meta property="og:title" content="Barstool Sports Lines of Code" />
 				<meta property="og:url" content="https://stool-loc.vercel.app" />
 				<meta property="og:description" content="Current Approximate Lines of Code in Barstool Sports Github Org" />
-				<meta property="og:image" content="/barstool.svg" />
+				<meta property="og:image" content="https://stool-loc.vercel.app/barstool.png" />
 				<meta property="og:type" content="website" />
 			</Head>
 			<div>
