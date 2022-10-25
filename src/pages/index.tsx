@@ -2,8 +2,7 @@ import React from "react";
 import { DateTime } from "luxon";
 
 import { redis } from "@http/redis-agent";
-import { Divider } from "@components/elements/Divider";
-import { AppLink } from "@components/elements/AppLink";
+import { Footer } from "@components/elements/Footer";
 
 interface HomeProps {
 	count: number
@@ -23,18 +22,15 @@ const Home = ({
 }: HomeProps) => {
 	const when = DateTime.fromISO(last_fetched);
 	return (
-		<div className="flex-wrap h-screen px-5 pt-5 m-auto text-center">
+		<div className="h-screen px-5 pt-5 m-auto text-center">
 			<div className="shadow-xl m-auto max-w-full card w-[600px] hover:cursor-default">
 				<div className="card-body">
-					<div className="text-6xl font-bold text-secondary md:text-8xl">{formatNumber(count, "compact")}</div>
-					<div className="opacity-60 font-thin text-[20px] pt-3"><span className="font-medium">{formatNumber(count)}</span> lines of code<br />across <span className="font-medium">{repo_count}</span> repositories</div>
+					<div className="text-[80px] font-bold text-secondary md:text-[100px]">{formatNumber(count, "compact")}</div>
+					<div className="opacity-60 font-thin text-[20px] md:text-[25px]"><span className="font-medium">{formatNumber(count)}</span> lines of code<br />across <span className="font-medium">{repo_count}</span> repositories</div>
 					<div className="opacity-60 font-thin text-[15px] pt-3">last updated {when.toRelativeCalendar()} at {when.toLocaleString({ hour: "numeric", minute: "numeric" })}</div>
 				</div>
 			</div>
-			<Divider />
-			<div className='font-normal text-[15px]'>
-				powered by <AppLink link="https://upstash.com" blank><span className="text-theme-upstash-green">Upstash</span></AppLink>
-			</div>
+			<Footer />
 		</div>
 	);
 };
