@@ -33,7 +33,7 @@ const Home = ({
 			</div>
 			<Divider />
 			<div className='font-normal text-[15px]'>
-				powered by <AppLink link="https://upstash.com" color="theme-upstash-green" blank>Upstash</AppLink>
+				powered by <AppLink link="https://upstash.com" blank><span className="text-theme-upstash-green">Upstash</span></AppLink>
 			</div>
 		</div>
 	);
