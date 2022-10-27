@@ -8,7 +8,7 @@ export const Footer = () => {
 		<>
 			<Divider />
 			<div className='font-normal text-[15px]'>
-				powered by <AppLink link="https://upstash.com" blank><span className="text-theme-upstash-green">Upstash</span></AppLink>
+				powered by <AppLink link="https://upstash.com" className="text-theme-upstash-green" blank>Upstash</AppLink>
 			</div>
 		</>
 	);

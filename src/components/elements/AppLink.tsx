@@ -15,6 +15,6 @@ export const AppLink = ({
 	className
 }: AppLinkProps) => {
 	return (
-		<Link href={link}><a className={className} target={`${blank ? "_blank" : "_top"}`}>{children}</a></Link>
+		<Link className={className} target={`${blank ? "_blank" : "_top"}`} href={link}>{children}</Link>
 	);
 };

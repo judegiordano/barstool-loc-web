@@ -1,7 +1,7 @@
 import React from "react";
-import Link from "next/link";
 
 import { Divider } from "@components/elements/Divider";
+import { AppLink } from "@components/elements/AppLink";
 
 const NotFound = () => {
 	return (
@@ -11,7 +11,7 @@ const NotFound = () => {
 			</div>
 			<Divider />
 			<h3 className="pb-2 font-thin">the requested page does not exist</h3>
-			<h3 className="font-thin">maybe try going <Link href="/"><a className="text-theme-blue">home</a></Link></h3>
+			<h3 className="font-thin">maybe try going <AppLink className="text-theme-blue" link="/">home</AppLink></h3>
 		</div>
 	);
 };

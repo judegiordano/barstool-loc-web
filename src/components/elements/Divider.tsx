@@ -8,6 +8,7 @@ export const Divider = () => {
 				src={"/barstool.svg"}
 				quality={100}
 				width={90}
+				placeholder="blur"
 				height={90}
 				alt="barstool"
 				priority
