@@ -2,6 +2,7 @@
 import React from "react";
 
 import "@styles/globals.css";
+import { Footer } from "@ui/elements/Footer";
 
 export default function RootLayout({
 	children,
@@ -26,7 +27,10 @@ export default function RootLayout({
 				<meta property="og:type" content="website" />
 			</head>
 			<body>
-				{children}
+				<div className="h-screen px-5 pt-2 text-center">
+					{children}
+					<Footer />
+				</div>
 			</body>
 		</html>
 	);

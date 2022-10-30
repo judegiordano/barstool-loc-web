@@ -45,7 +45,17 @@ module.exports = {
 						value: "origin-when-cross-origin"
 					}
 				],
-			}
+			},
+			{
+				source: "/:all*(svg|jpg|png)",
+				locale: false,
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=31536000, stale-while-revalidate",
+					},
+				],
+			},
 		];
 	}
 };
