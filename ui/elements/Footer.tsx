@@ -1,9 +1,9 @@
 import React from "react";
 
-import { AppLink } from "@components/elements/AppLink";
-import { Divider } from "@components/elements/Divider";
+import { AppLink } from "@ui/elements/AppLink";
+import { Divider } from "@ui/elements/Divider";
 
-export const Footer = () => {
+export function Footer() {
 	return (
 		<>
 			<Divider />
@@ -12,4 +12,4 @@ export const Footer = () => {
 			</div>
 		</>
 	);
-};
+}

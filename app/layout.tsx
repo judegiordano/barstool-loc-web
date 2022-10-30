@@ -1,14 +1,16 @@
+/* eslint-disable @next/next/no-head-element */
 import React from "react";
-import Head from "next/head";
-import type { AppProps } from "next/app";
-import { ThemeProvider } from "next-themes";
 
 import "@styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function RootLayout({
+	children,
+}: {
+	children: React.ReactNode
+}) {
 	return (
-		<>
-			<Head>
+		<html lang="en" data-theme="dracula">
+			<head>
 				<title>Barstool Lines of Code</title>
 				<meta charSet="UTF-8" />
 				<link rel="icon" href="/barstool.svg" />
@@ -22,14 +24,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<meta property="og:description" content="Current Approximate Lines of Code in Barstool Sports Github Org" />
 				<meta property="og:image" content="https://stool-loc.vercel.app/barstool.png" />
 				<meta property="og:type" content="website" />
-			</Head>
-			<div>
-				<ThemeProvider attribute="data-theme" defaultTheme={"dracula"}>
-					<Component {...pageProps} />
-				</ThemeProvider>
-			</div>
-		</>
+			</head>
+			<body>
+				{children}
+			</body>
+		</html>
 	);
 }
-
-export default MyApp;

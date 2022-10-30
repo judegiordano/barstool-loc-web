@@ -8,13 +8,13 @@ interface AppLinkProps {
 	className?: string
 }
 
-export const AppLink = ({
+export function AppLink({
 	link,
 	children,
 	blank = false,
 	className
-}: AppLinkProps) => {
+}: AppLinkProps) {
 	return (
 		<Link className={className} target={`${blank ? "_blank" : "_top"}`} href={link}>{children}</Link>
 	);
-};
+}

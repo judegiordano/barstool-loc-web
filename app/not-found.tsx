@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Divider } from "@components/elements/Divider";
-import { AppLink } from "@components/elements/AppLink";
+import { Divider } from "@ui/elements/Divider";
+import { AppLink } from "@ui/elements/AppLink";
 
-const NotFound = () => {
+export default function NotFound() {
 	return (
 		<div className="h-screen px-5 pt-10 text-center">
 			<div className='text-4xl font-bold md:text-6xl'>
@@ -14,6 +14,4 @@ const NotFound = () => {
 			<h3 className="font-thin">maybe try going <AppLink className="text-theme-blue" link="/">home</AppLink></h3>
 		</div>
 	);
-};
-
-export default NotFound;
+}

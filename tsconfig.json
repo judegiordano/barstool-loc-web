@@ -21,8 +21,10 @@
     "baseUrl": ".",
     "paths": {
       "@styles/*": [
-        "src/styles/*"
+        "styles/*"
       ],
+      "@lib/*": ["lib/*"],
+      "@ui/*": ["ui/*"],
       "@components/*": [
         "src/components/*"
       ],
@@ -33,14 +35,20 @@
         "src/config.ts"
       ],
       "@http/*": [
-        "src/http/*"
+        "lib/http/*"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
