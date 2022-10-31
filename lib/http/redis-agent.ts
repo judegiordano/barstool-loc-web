@@ -18,9 +18,9 @@ export async function linesOfCode() {
 	}, {
 		result: last_fetched
 	}] = await Promise.all([
-		redis.get<RedisResult>("GET/lines_of_code"),
-		redis.get<RedisResult>("GET/repo_count"),
-		redis.get<RedisResult>("GET/last_fetched"),
+		redis.get<RedisResult>("GET/lines_of_code", { cache: "no-store" }),
+		redis.get<RedisResult>("GET/repo_count", { cache: "no-store" }),
+		redis.get<RedisResult>("GET/last_fetched", { cache: "no-store" }),
 	]);
 	return {
 		count: parseInt(count),

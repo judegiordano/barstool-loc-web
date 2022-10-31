@@ -1,6 +1,7 @@
 type HttpOptions = {
 	headers?: HeadersInit
 	cache?: RequestCache
+	next?: { revalidate?: number }
 }
 
 type RestAgentOptions = {
@@ -32,7 +33,8 @@ export class RestAgent {
 		const response = await fetch(request.url, {
 			method: "GET",
 			headers: request.headers,
-			cache: options?.cache
+			cache: options?.cache,
+			next: options?.next
 		});
 		return response.json() as T;
 	}
