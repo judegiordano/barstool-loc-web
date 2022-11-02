@@ -1,5 +1,6 @@
 import { RestAgent } from "@lib/http/agent";
 import { REDIS_ENDPOINT, REDIS_READONLY_TOKEN } from "@lib/config";
+import { HOUR_IN_SECONDS } from "@lib/constants";
 
 export const redis = new RestAgent({
 	baseUrl: REDIS_ENDPOINT,
@@ -18,9 +19,9 @@ export async function linesOfCode() {
 	}, {
 		result: last_fetched
 	}] = await Promise.all([
-		redis.get<RedisResult>("GET/lines_of_code", { cache: "no-store" }),
-		redis.get<RedisResult>("GET/repo_count", { cache: "no-store" }),
-		redis.get<RedisResult>("GET/last_fetched", { cache: "no-store" }),
+		redis.get<RedisResult>("GET/lines_of_code", { next: { revalidate: HOUR_IN_SECONDS } }),
+		redis.get<RedisResult>("GET/repo_count", { next: { revalidate: HOUR_IN_SECONDS } }),
+		redis.get<RedisResult>("GET/last_fetched", { next: { revalidate: HOUR_IN_SECONDS } }),
 	]);
 	return {
 		count: parseInt(count),
