@@ -3,6 +3,7 @@ import React from "react";
 
 import "@styles/globals.css";
 import { Footer } from "@ui/elements/Footer";
+import { AnalyticsWrapper } from "@lib/components/Analytics";
 
 export default function RootLayout({
 	children,
@@ -30,6 +31,7 @@ export default function RootLayout({
 			<body>
 				<div className="h-screen px-5 pt-2 text-center">
 					{children}
+					<AnalyticsWrapper />
 					<Footer />
 				</div>
 			</body>
