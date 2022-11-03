@@ -10,6 +10,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
+		// "dracula", "luxury", "night", "lofi"
 		<html lang="en" data-theme="dracula">
 			<head>
 				<title>Barstool Lines of Code</title>
@@ -23,7 +24,7 @@ export default function RootLayout({
 				<meta property="og:title" content="Barstool Sports Lines of Code" />
 				<meta property="og:url" content="https://stool-loc.vercel.app" />
 				<meta property="og:description" content="Current Approximate Lines of Code in Barstool Sports Github Org" />
-				<meta property="og:image" content="https://stool-loc.vercel.app/barstool.png" />
+				<meta property="og:image" content="/barstool.png" />
 				<meta property="og:type" content="website" />
 			</head>
 			<body>
