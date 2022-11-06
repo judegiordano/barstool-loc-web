@@ -1,14 +1,11 @@
 import React from "react";
-import { DateTime } from "luxon";
 
 import { linesOfCode } from "@lib/http/redis-agent";
 import { formatNumber } from "@lib/util";
+import { LastUpdated } from "@lib/components/LastUpdated";
 
 export default async function Page() {
 	const { count, last_fetched, repo_count } = await linesOfCode();
-	const when = DateTime.fromISO(last_fetched);
-	const calender = when.toRelativeCalendar();
-	const time = when.toLocaleString({ hour: "numeric", minute: "numeric" });
 	return (
 		<div className="shadow-xl m-auto max-w-full card w-[600px] hover:cursor-default">
 			<div className="card-body">
@@ -18,7 +15,7 @@ export default async function Page() {
 					<br />
 					across <span className="font-medium">{repo_count}</span> repositories
 				</div>
-				<div className="opacity-60 font-thin text-[15px] pt-3">last updated {calender} at {time}</div>
+				<LastUpdated last_fetched={last_fetched} />
 			</div>
 		</div>
 	);
